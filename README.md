@@ -3,7 +3,5 @@
 - Desafios de codigo;
 - Desafios de projetos:
 - Aulas práticas e teóricas;
-
-
-<img src="[https://github.com/estelaalmeida/Santander-2024-Backend-com-Java/assets/76489384/e16ffdd5-3cd2-4620-bdeb-82512fdaa057](https://github.com/estelaalmeida/Santander-2024-Backend-com-Java/assets/76489384/e5bf8849-3c1d-41f8-8027-2c0ca044c195)" width="250" height="100">
-
+- 
+<img src="[https://your-image-url.type](https://github.com/estelaalmeida/Santander-2024-Backend-com-Java/assets/76489384/7767d0b3-9d71-4b7f-83e6-4a448116052d)" width="100" height="100">
