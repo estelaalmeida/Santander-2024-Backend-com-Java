@@ -1,8 +1,8 @@
 ***_Trilha Java Back-end - Santander (DIO)_**
 
--*- Desafios de codigo;
--*- Desafios de projetos:
--*- Aulas práticas e teóricas;
+-*-Desafios de codigo;
+-*-Desafios de projetos:
+- Aulas práticas e teóricas;
 
 
 
