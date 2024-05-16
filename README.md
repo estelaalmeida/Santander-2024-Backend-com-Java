@@ -4,7 +4,7 @@
 - Desafios de projetos:
 - Aulas práticas e teóricas;
 
+<img src="https://your-image-url.type" width="100" height="100">
 
-
-![bolsa-santander-back-end](https://github.com/estelaalmeida/Santander-2024-Backend-com-Java/assets/76489384/e16ffdd5-3cd2-4620-bdeb-82512fdaa057=100)
+<img src="https://github.com/estelaalmeida/Santander-2024-Backend-com-Java/assets/76489384/e16ffdd5-3cd2-4620-bdeb-82512fdaa057" width="100" height="100">
 
