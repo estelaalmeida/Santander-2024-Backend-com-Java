@@ -1,4 +1,4 @@
-***_Trilha Java Back-end - Santander (DIO)_**
+                                  ***_Trilha Java Back-end - Santander (DIO)_**
 <img align="left" width="100" height="100" src= https://github.com/estelaalmeida/Santander-2024-Backend-com-Java/assets/76489384/3ac3e70c-7451-4114-9e68-a3795364d016)>
 
 - Aulas práticas e teóricas;
