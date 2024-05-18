@@ -1,0 +1,417 @@
+Index: src/SimulacaoBancaria.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/SimulacaoBancaria.java b/src/SimulacaoBancaria.java
+new file mode 100644
+--- /dev/null	(date 1715874994804)
++++ b/src/SimulacaoBancaria.java	(date 1715874994804)
+@@ -0,0 +1,61 @@
++import java.util.Scanner;
++
++//Condições, Loops e Exceções na Prática com Java
++//Desafio - 1 / 5 - Operações Bancárias Simples com Switch.
++//@Author Estela Almeida Oliveira
++
++public class SimulacaoBancaria {
++    public static void main(String[] args) {
++
++        System.out.println("Simular Conta bacária");
++        Scanner scanner = new Scanner(System.in);
++
++        double saldo = 0;
++        // Loop infinito para manter o programa em execução até que o usuário decida sair
++
++        while (true) {
++            int opcao = scanner.nextInt();
++            switch (opcao) {
++                //Implemente as condições necessárias para avaliaa a opção escolhida:
++                // Dica: Utilze o switch/case para o programa realizar as operações escolhidas pelo usuário.
++
++                case 1:  // depositar:
++
++                    double saldoConta =  scanner.nextDouble();
++                    saldo = saldoConta;
++
++                    System.out.println("Saldo atual: " + saldo);
++                    break;
++
++                case 2: //Sacar:
++
++                    double saldoRetirada =  scanner.nextDouble();
++                    if(saldoRetirada <= saldo){
++                        saldo -= saldoRetirada;
++
++                        System.out.println("Saldo atual: "+ saldo);
++
++                    }else{
++
++                        System.out.println("Saldo insuficiente.");
++                    }
++                    break;
++
++                case 3: //Consultar Saldo:
++
++                    System.out.println("Saldo atual: " + saldo );
++                    break;
++
++                case 0 : //   Encerrar
++                    System.out.println(" Programa encerrado.");
++
++                    return;
++
++                default :  // Exibe mensagem de opção inválida se o usuário escolher uma opção inválida:
++                    System.out.println("Opção inválida. Tente novamente.");
++
++            }
++        }
++    }
++
++}
+Index: src/VerificadorNumeroConta.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/VerificadorNumeroConta.java b/src/VerificadorNumeroConta.java
+new file mode 100644
+--- /dev/null	(date 1715874943700)
++++ b/src/VerificadorNumeroConta.java	(date 1715874943700)
+@@ -0,0 +1,49 @@
++import java.util.Scanner;
++//  Condições, Loops e Exceções na Prática com Java
++// Desafio: 2 / 5 - Verificação de Número de Conta Bancária
++// @Author Estela Almeida Oliveira
++public class VerificadorNumeroConta {
++    public static void main(String[] args) {
++        Scanner scanner = new Scanner(System.in);
++
++        System.out.println("A seguir digite o número da conta:");
++// Inicialize um bloco try-catch para capturar exceções:
++
++    try {
++//Leia a entrada do usuário como uma string representando o número da conta:
++        String numeroConta = scanner.next();
++
++// Chame o método verificarNumeroConta, passando o número da conta como argumento:
++
++        verificarNumeroConta(numeroConta);
++
++//Imprime que o número de conta é válido:
++
++        System.out.println("Numero de conta valido.");
++
++// Capture a exceção do tipo IllegalArgumentException, que pode ser lançada pelo método verificarNumeroConta:
++        }catch (IllegalArgumentException e ){
++//Aqui é impresso uma mensagem de erro, mostrando a mensagem associada à exceção:
++        System.out.println("Erro: " + e.getMessage());
++        } finally {
++        scanner.close();
++        }
++    }
++
++    // Declaração do método verificarNumeroConta, que verifica se o número de conta tem exatamente 8 dígitos:
++    private static void verificarNumeroConta(String numeroConta) {
++
++// Verifique se o número da conta tem exatamente 8 dígitos:
++        int contadorConta = numeroConta.length();
++        int numeroDigitado = 0;
++
++        for (int i = 0; i < contadorConta; i++) {
++            numeroDigitado ++;
++        }
++// Implemente uma exceção do tipo IllegalArgumentException, caso o número de conta não tenha 8 dígitos:
++        if (numeroDigitado != 8) {
++            throw new IllegalArgumentException("Numero de conta invalido. Digite exatamente 8 digitos.");
++        }
++    }
++
++}
+Index: src/VerificacaoChequeEspecial.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/VerificacaoChequeEspecial.java b/src/VerificacaoChequeEspecial.java
+new file mode 100644
+--- /dev/null	(date 1715874978380)
++++ b/src/VerificacaoChequeEspecial.java	(date 1715874978380)
+@@ -0,0 +1,35 @@
++
++import java.util.Scanner;
++
++//Condições, Loops e Exceções na Prática com Java
++//Desafio: 4 / 5 - Verificação de Cheque Especial
++//@Author Estela Almeida Oliveira
++public class VerificacaoChequeEspecial {
++    public static void main(String[] args) {
++        Scanner scanner = new Scanner(System.in);
++
++        double saldo = scanner.nextDouble();
++        double saque = scanner.nextDouble();
++        double limiteChequeEspecial = 500;
++
++
++        // Verifique se o saque não ultrapassa o saldo disponível na conta:
++        if(saque <= saldo){
++            System.out.println("Transacao realizada com sucesso.");
++
++        // Verifique se o saque ultrapassa o limite do cheque especial, mas não o saldo total disponível:
++
++        }else if ( saque <= saldo + limiteChequeEspecial){
++            System.out.println("Transacao realizada com sucesso utilizando o cheque especial.");
++        // Se o saque ultrapassar tanto o saldo disponível quanto o limite do cheque especial
++
++        }else{
++            System.out.println("Transacao nao realizada. Limite do cheque especial excedido.");
++        }
++
++
++// Fechamos o objeto Scanner para liberar os recursos:
++        scanner.close();
++    }
++
++}
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.gitignore b/.gitignore
+new file mode 100644
+--- /dev/null	(date 1715867687770)
++++ b/.gitignore	(date 1715867687770)
+@@ -0,0 +1,29 @@
++### IntelliJ IDEA ###
++out/
++!**/src/main/**/out/
++!**/src/test/**/out/
++
++### Eclipse ###
++.apt_generated
++.classpath
++.factorypath
++.project
++.settings
++.springBeans
++.sts4-cache
++bin/
++!**/src/main/**/bin/
++!**/src/test/**/bin/
++
++### NetBeans ###
++/nbproject/private/
++/nbbuild/
++/dist/
++/nbdist/
++/.nb-gradle/
++
++### VS Code ###
++.vscode/
++
++### Mac OS ###
++.DS_Store
+\ No newline at end of file
+Index: src/ControleSimplesDeSaques.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/ControleSimplesDeSaques.java b/src/ControleSimplesDeSaques.java
+new file mode 100644
+--- /dev/null	(date 1715875675703)
++++ b/src/ControleSimplesDeSaques.java	(date 1715875675703)
+@@ -0,0 +1,44 @@
++import java.util.Scanner;
++
++//Condições, Loops e Exceções na Prática com Java
++//Desafio - 5 / 5 - Operações Bancárias Simples com Switch.
++//@Author Estela Almeida Oliveira
++public class ControleSimplesDeSaques {
++
++    public static void main(String[] args) {
++        Scanner scanner = new Scanner(System.in);
++
++        double limiteDiario = scanner.nextDouble();
++        double saque  = 0;
++
++
++    // Crie um loop 'for' para iterar sobre os saques:
++        for (double valorSaque  = saque; limiteDiario > valorSaque ;limiteDiario -= valorSaque)
++            {
++
++    //Solicite ao usuário o valor do saque:
++            saque = scanner.nextDouble();
++
++    //Verifique se o valor do saque é zero, encerrando as transações:
++    // Dica: Utilize um 'if/else' para verificar as condições do valorSaque e o limiteDiario;
++            if (saque == 0) {
++                System.out.println("Transacoes encerradas.");
++                return;
++
++            }else if (saque <= limiteDiario){
++                        limiteDiario -= saque;
++                            System.out.println("Saque realizado. Limite restante: " + String.format("%.1f", limiteDiario));
++
++    // Se o valor do saque não ultrapassar o limite diário, subtraia o valor do saque do limite diário:
++
++            }else{
++
++    // Informe que o saque foi realizado e mostre o limite restante:
++                    System.out.println("Limite diario de saque atingido. Transacoes encerradas.");
++                    return;
++            }
++        }
++// Fechamos o Scanner para evitar vazamento de recursos:
++        scanner.close();
++    }
++}
+Index: src/VerificadorElegibilidadeConta.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/VerificadorElegibilidadeConta.java b/src/VerificadorElegibilidadeConta.java
+new file mode 100644
+--- /dev/null	(date 1715874943378)
++++ b/src/VerificadorElegibilidadeConta.java	(date 1715874943378)
+@@ -0,0 +1,26 @@
++import  java.util.Scanner;
++
++//Condições, Loops e Exceções na Prática com Java
++//Desafio: 3 / 5 - Verificador de Idade para Conta Bancária
++//@Author Estela Almeida Oliveira
++public class VerificadorElegibilidadeConta {
++
++    public static void main(String[] args) {
++
++        Scanner scanner = new Scanner(System.in);
++            System.out.println("Digite sua idade:");
++        int idade = scanner.nextInt();
++
++//Verifique se a idade é maior ou igual a 18 e imprima uma mensagem informando que o usuário é elegível para criar uma conta bancária:
++        if( idade >= 18 ){
++            System.out.println("Voce esta elegivel para criar uma conta bancaria.");
++
++        }else{
++            System.out.println("Voce nao esta elegivel para criar uma conta bancaria.");
++        }
++// Fechamos o objeto Scanner para liberar os recursos:
++
++        scanner.close();
++    }
++
++}
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1715867968688)
++++ b/.idea/modules.xml	(date 1715867968688)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/Desafio de codigo.iml" filepath="$PROJECT_DIR$/Desafio de codigo.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file
+Index: ../../sistema-smart-tv/sistema-smart-tv.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/../../sistema-smart-tv/sistema-smart-tv.iml b/../../sistema-smart-tv/sistema-smart-tv.iml
+new file mode 100644
+--- /dev/null	(date 1714339640495)
++++ b/../../sistema-smart-tv/sistema-smart-tv.iml	(date 1714339640495)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: Desafio de codigo.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Desafio de codigo.iml b/Desafio de codigo.iml
+new file mode 100644
+--- /dev/null	(date 1715867968249)
++++ b/Desafio de codigo.iml	(date 1715867968249)
+@@ -0,0 +1,11 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$">
++      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1715867970407)
++++ b/.idea/vcs.xml	(date 1715867970407)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1715867980940)
++++ b/.idea/.gitignore	(date 1715867980940)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1715867969695)
++++ b/.idea/misc.xml	(date 1715867969695)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="corretto-17" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/out" />
++  </component>
++</project>
+\ No newline at end of file
+diff --git a/Desafio de codigo.md.TXT b/Desafio de codigo.md.TXT
+new file mode 100644
