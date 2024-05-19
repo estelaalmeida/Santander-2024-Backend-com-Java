@@ -1,8 +1,10 @@
-**Trilha Java Back-end - Santander (DIO)**
+**Trilha Java Back-end - Santander (DIO)**  <img src="https://github.com/estelaalmeida/Santander-2024-Backend-com-Java/assets/76489384/68bd2484-b4af-46be-9429-84670d6e7ec4" width="50" height="50" />
 
- -*_Nível Básico_*
+ -*_Nível Básico_* 
 
-   <img src="C:\Users\estel\OneDrive\Área de Trabalho\dio.png" style="zoom: 25%;" />     <img src="C:\Users\estel\OneDrive\Área de Trabalho\Bolsa Santander.jpeg" style="zoom: 25%;" />
+<img src="https://github.com/estelaalmeida/Santander-2024-Backend-com-Java/assets/76489384/f9595a40-d7b1-4fd6-930c-db25919173f4" width="200" height="300" />
+
+
 
 - **Aulas práticas e teóricas;** 
 - **Desafios de código;**                   
