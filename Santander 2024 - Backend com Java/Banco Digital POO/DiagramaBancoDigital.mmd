@@ -1,0 +1,63 @@
+classDiagram
+
+
+
+    class Banco{
+        String nome;
+        ArrayList<Conta>
+    }
+
+    class IConta {
+        <<interface>>
+        +sacar (double valor) void;
+        +depositar(double valor) void
+        +transferir(double valor,IConta contaDestino): void
+        imprimirExtrato() void
+    }
+
+    class cliente {
+        #private String nome;
+        #private String conta;
+    }
+
+    class Conta {
+        +sacar (double valor) void;
+        +depositar(double valor) void
+        +transferir(double valor,IConta contaDestino): void
+        +void imprimirDados();
+    }
+
+    class ContaCorrente{
+    +public imprimirExtrato() void
+    +super.imprimirDados();
+    +super(cliente);
+    }
+
+    class ContaInvestimento{
+        +public  imprimirExtrato()  void
+
+    }
+
+    class ContaPoupanca{
+        +public  imprimirExtrato() :void
+
+    }
+
+    Banco -->               IConta
+    ContaCorrente <|--      Conta
+    ContaInvestimento <|--  Conta
+    ContaPoupanca <|--      Conta
+
+    main ..|>   ContaPoupanca
+    main ..|>   ContaInvestimento
+    main ..|>   ContaPoupanca
+    main ..|>   ContaCorrente
+
+
+
+    Banco *--   ContaPoupanca
+    Banco *--   ContaInvestimento
+    Banco *--   ContaCorrente
+    Banco *--   Conta
+
+    Conta o-- Banco
